@@ -1,10 +1,9 @@
 const io = require('socket.io-client');
 
-socket = io('ws://localhost:3001');
-
-console.log(socket.connected);
+socket = io('ws://todo-orders.herokuapp.com/');
 
 socket.on('connect', () => {
+    console.log(socket.connected);
     socket.emit('message', { 'message': 'client' });
     socket.on('message', data => {
         console.log(data);
