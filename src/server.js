@@ -5,6 +5,8 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 require('./models');
 
+const PORT = process.env.PORT || 3000;
+
 app.get("/", (req, res) => {
   res.status(200).json({ 'message': 'Welcome' });
 });
@@ -22,7 +24,7 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(3001, () => {
-  console.log('Listening on port 3001');
+server.listen(PORT, () => {
+  console.log('Listening on port ' + PORT);
 });
 
