@@ -17,7 +17,7 @@ io.on('connection', (socket) => {
   socket.emit('message', {'messgae': 'Server'});
 
   socket.on('message', data => {
-    socket.emit('message', {'message': 'Received'} )
+    socket.emit('message', {'message': 'Received', 'data': data} )
   });
 
   socket.on('disconnect', () => {
